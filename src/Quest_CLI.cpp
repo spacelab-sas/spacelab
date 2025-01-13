@@ -102,14 +102,6 @@ const int ANA3 = A3;              //analog 3 input
 //
 //-------------------------------end of general setup pins
 
-#define IO7 (13)              // Input/Output to payload plus 
-#define IO6 (12)              // Input/Output to payload plus 
-#define IO5 (11)              // Input/Output to payload plus
-#define IO4 (10)              // Input/Output to payload plus
-#define IO3 (9)               // Input/Output to payload plus
-#define IO2 (4)               // Input/Output to payload plus
-#define IO1 (3)               // Input/Output to payload plus
-#define IO0 (A6)              // Input/Output to payload plus 
 //
 //-------Host interface communication 9600 baud ----------
 
@@ -545,22 +537,23 @@ void setup() {
   Serial.println("add to change this is your flight playground to learn the S3_40 system\n");
   //
   //------------ set digital IO to output and high ------------
+  // CHANGED: to low
   pinMode(IO7, OUTPUT);      //
-  digitalWrite(IO7, HIGH);   //
+  digitalWrite(IO7, LOW);   //
   pinMode(IO6, OUTPUT);      //
-  digitalWrite(IO6, HIGH);   //
+  digitalWrite(IO6, LOW);   //
   pinMode(IO5, OUTPUT);      //
-  digitalWrite(IO5, HIGH);   //
+  digitalWrite(IO5, LOW);   //
   pinMode(IO4, OUTPUT);      //
-  digitalWrite(IO4, HIGH);   //
+  digitalWrite(IO4, LOW);   //
   pinMode(IO3, OUTPUT);      //
-  digitalWrite(IO3, HIGH);   //
+  digitalWrite(IO3, LOW);   //
   pinMode(IO2, OUTPUT);      //
-  digitalWrite(IO2, HIGH);   //
+  digitalWrite(IO2, LOW);   //
   pinMode(IO1, OUTPUT);      //
-  digitalWrite(IO1, HIGH);   //
+  digitalWrite(IO1, LOW);   //
   pinMode(IO0, OUTPUT);      //
-  digitalWrite(IO0, HIGH);   //
+  digitalWrite(IO0, LOW);   //
   //
   PulseInit();    //????????????????????????????????????????????????????????????
   //
@@ -629,10 +622,10 @@ void loop() {
   int freeMemoryValue = freeMemory();
   Serial.printf("Free Memory = %X HEX or %d DEC\n", freeMemoryValue, freeMemoryValue);
 
-  Serial.println("\r\n\nInput 'T' of 't' to enter test within 15 seconds");
+  Serial.println("\r\n\nInput 'T' of 't' to enter test within 5 seconds");
 
   uint32_t currentMillis = millis();            //this is time now
-  uint16_t countdown = 15;                      //the countdown clock
+  uint16_t countdown = 5;                      //the countdown clock
   long unsigned int milliscountdown = millis(); //countdown counter for test
 
   //??????????????????????????????????????????????????????????????????????????????????????????????????????

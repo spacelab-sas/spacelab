@@ -9,6 +9,15 @@
 
 #include "Quest_RTClib.h"
 
+#define IO7 (13)              // Input/Output to payload plus 
+#define IO6 (12)              // Input/Output to payload plus 
+#define IO5 (11)              // Input/Output to payload plus
+#define IO4 (10)              // Input/Output to payload plus
+#define IO3 (9)               // Input/Output to payload plus
+#define IO2 (4)               // Input/Output to payload plus
+#define IO1 (3)               // Input/Output to payload plus
+#define IO0 (A6)              // Input/Output to payload plus 
+
 #ifndef __QUEST_CLI_H__
 #define __QUEST_CLI_H__
 
