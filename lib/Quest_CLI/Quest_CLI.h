@@ -9,6 +9,12 @@
 
 #include "Quest_RTClib.h"
 
+#define SPEED_FACTOR 4
+
+#define ONE_SECOND  1000
+#define ONE_MIN     60 * ONE_SECOND
+#define ONE_HOUR    60 * ONE_MIN
+
 #define IO7 (13)              // Input/Output to payload plus 
 #define IO6 (12)              // Input/Output to payload plus 
 #define IO5 (11)              // Input/Output to payload plus

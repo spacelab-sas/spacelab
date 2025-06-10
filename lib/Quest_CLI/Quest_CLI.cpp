@@ -59,6 +59,7 @@ const char source_file[] = __FILE__;
 //
 //-----includes--------------------
 #include <Wire.h>
+#include <stdarg.h>
 #include <i2cdetect.h>
 #include <SdFat.h>
 #include <Adafruit_Sensor.h>
@@ -3195,5 +3196,26 @@ void Flying() {
 
 //
 //
+
+void addData(const char* format, ...) {
+  char buffer[256];
+
+  char modified_format[260];
+  snprintf(modified_format, sizeof(modified_format), "(%li) %s\n", rtc.now().unixtime(), format);
+  
+  va_list args;
+  va_start(args, format);
+
+  vsnprintf(buffer, sizeof(buffer), modified_format, args);
+
+  va_end(args);
+
+  if (strlen(user_text_buf0) + strlen(buffer) >= sizeof(user_text_buf0) - 100) {
+    Serial.println("Data doesn't fit!");
+    nophotophoto();
+  }
+
+  strcat(user_text_buf0, buffer);
+}
 
 #pragma GCC diagnostic pop
